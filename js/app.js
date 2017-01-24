@@ -1,29 +1,36 @@
-  // Retrieve information from OMDb
-// We create an empty array and store the variables inside of it.
-var url = [
-  'http://www.omdbapi.com/?t=Star+Wars&y=&plot=short&r=json',
-  'http://www.omdbapi.com/?t=Star+Trek&y=2016&plot=short&r=json',
-  'http://www.omdbapi.com/?t=StarGate&y=&plot=short&r=json',
-  'http://www.omdbapi.com/?t=Star&y=&plot=full&r=json',
-  'http://www.omdbapi.com/?t=The+star&y=&plot=full&r=json',
-  'http://www.omdbapi.com/?t=The+star+Chamber&y=&plot=full&r=json',
-];
+$(document).ready(function() {
+  $('.OMDbForm').submit(function(event) {
+    // Stop the form from submitting
+    event.preventDefault();
+
+    // Get The value from the form
+    var OMDbAPI = 'http://www.omdbapi.com/?';
+    var movie = $('.OMDbSearch').val();
+    var OMDbOptions = {
+      s: movie,
+      r: 'json',
+    };
+    function displayMovies(data) {
+      var moviesHTML = '<ul>';
+      $.each(data.Search, function(index, value) {
+        moviesHTML += '<li>';
+        moviesHTML += '<a href="' + value.Title + '">';
+        moviesHTML += value.Title;
+        moviesHTML += '</a>';
+        moviesHTML += '</li>';
+      });//end each
+      moviesHTML += '</ul>';
+      $('#movies').prepend(moviesHTML);
+      console.log(moviesHTML);
+    }
+    $.getJSON(OMDbAPI, OMDbOptions, displayMovies);// end getJSON
+  }); // end submit function
+}); // end document.ready
 
 
-// We create a foreach loop in order to loop through the array.
-for (var i = 0; i < url.length; i++) {
-  console.log(url[i]);
-}
 
-
-
-// The Standard AJAX Request
-  // Need to work on it to append the information to the page
-
-var url1 = 'http://www.omdbapi.com/?t=Star+Wars&y=&plot=short&r=json';
-$.ajax(url1, {
-  complete: function (p_oXHR, p_sStatus) {
-    oData = $.parseJSON(p_oXHR.responseText);
-    console.log(oData);
-  }
-});
+// console.log(value.Title);
+// console.log(value.Year);
+// console.log(value.imdbID);
+// console.log(value.Type);
+// console.log(value.Poster);

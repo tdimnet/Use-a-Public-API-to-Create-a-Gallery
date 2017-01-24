@@ -7,10 +7,17 @@
   </head>
   <body>
     <header>
-      <h1>My favorite movies with the name Star</h1>
+      <h1>OMDb Movies Search</h1>
     </header>
     <main>
-
+      <form class="OMDbForm">
+        <label for="search">Type a search term</label>
+        <input type="search" name="search" id="search" class="OMDbSearch">
+        <input type="submit" value="Search" id="search">
+      </form>
+      <div id="movies">
+        
+      </div>
     </main>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="js/app.js" charset="utf-8"></script>
