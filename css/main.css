@@ -1,6 +1,6 @@
-/*********************
+/*******************************
   General Settings
-*********************/
+*******************************/
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #EDEFF0;
@@ -10,11 +10,19 @@ body {
   box-sizing: border-box;
 }
 
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
 
 
-/*********************
+
+/*******************************
   Heading
-*********************/
+*******************************/
 .main-wrapper header {
   background-color: #3E474F;
   color: #fff;
@@ -30,9 +38,9 @@ body {
 
 
 
-/*********************
-  Gallery
-*********************/
+/*******************************
+  Main Gallery & Form Settings
+*******************************/
 .gallery {
   width: 90%;
   margin: 60px auto 0;
@@ -42,27 +50,77 @@ body {
   background-color: #fff;
   width: 100%;
   margin: auto;
-  padding: 10px;
+  padding: 20px 10px;
 }
 
 .gallery .OMDbForm label,
 .gallery .OMDbForm input {
   margin-top: 20px;
+  cursor: pointer;
 }
 
 .OMDbForm .OMDbSearch {
   width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  outline: 0;
+  border: 1px solid #d4d9dd;
+  transition: .4s;
+  color: #222;
+}
+
+.OMDbForm .OMDbSearch:hover {
+  background-color: #EDEFF0;
+}
+
+.OMDbForm .OMDbSearch:focus {
+  border-color: #3E474F;
 }
 
 .OMDbForm .submit-btn {
-  width: 50%;
+  width: 90%;
+  padding: 10px;
   display: block;
   margin: auto;
+  background-color: #5FCF80;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  transition: .4s;
 }
 
-/*********************
+.OMDbForm .submit-btn:hover {
+  background-color: #3AC162;
+}
+
+
+
+/*******************************
+  Movies Gallery
+*******************************/
+#movies li {
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  background-color: #fff;
+  transition: .4s;
+}
+
+#movies li:hover {
+  border-color: #3E474F;
+}
+
+#movies img {
+  padding: 10px;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+
+
+/*******************************
   Overlay
-*********************/
+*******************************/
 #overlay {
   display: none;
   position: fixed;
@@ -72,4 +130,33 @@ body {
   height: 100%;
   background-color: rgba(0,0,0,0.5);
   padding-top: 50px;
+}
+
+
+
+/*******************************
+  Media Queries
+*******************************/
+/* Tablet *********************/
+@media (min-width: 768px) {
+  /* Main Gallery & Form Settings */
+  .gallery .OMDbForm {
+    width: 80%;
+  }
+
+  .OMDbForm .submit-btn {
+    width: 70%;
+  }
+
+  /* Movies Gallery */
+  #movies li {
+    width: 50%;
+  }
+}
+
+/* Desktop *********************/
+@media (min-width: 1024px) {
+  #movies li {
+    width: 30%;
+  }
 }
