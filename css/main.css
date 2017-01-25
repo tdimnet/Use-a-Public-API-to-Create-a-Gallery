@@ -1,7 +1,67 @@
+/*********************
+  General Settings
+*********************/
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #EDEFF0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 
 
 /*********************
-Overlay
+  Heading
+*********************/
+.main-wrapper header {
+  background-color: #3E474F;
+  color: #fff;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.main-wrapper header h1 {
+  margin: 0;
+  font-weight: bold;
+}
+
+
+
+/*********************
+  Gallery
+*********************/
+.gallery {
+  width: 90%;
+  margin: 60px auto 0;
+}
+
+.gallery .OMDbForm {
+  background-color: #fff;
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+}
+
+.gallery .OMDbForm label,
+.gallery .OMDbForm input {
+  margin-top: 20px;
+}
+
+.OMDbForm .OMDbSearch {
+  width: 100%;
+}
+
+.OMDbForm .submit-btn {
+  width: 50%;
+  display: block;
+  margin: auto;
+}
+
+/*********************
+  Overlay
 *********************/
 #overlay {
   display: none;

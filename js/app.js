@@ -50,3 +50,7 @@ $('#movies').on('click', 'img', function() {
 
   $overlay.fadeIn('slow');
 });
+
+$overlay.click(function() {
+  $(this).fadeOut('slow');
+});

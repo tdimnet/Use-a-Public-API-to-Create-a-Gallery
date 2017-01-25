@@ -3,22 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Gallery with Public API</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <header>
-      <h1>OMDb Movies Search</h1>
-    </header>
-    <main>
-      <form class="OMDbForm">
-        <label for="search">Type a search term</label>
-        <input type="search" name="search" id="search" class="OMDbSearch">
-        <input type="submit" value="Search" id="search">
-      </form>
-      <div id="movies">
-        
-      </div>
-    </main>
+    <div class="main-wrapper">
+      <header>
+        <h1>OMDb Movies Search</h1>
+      </header>
+      <main class="gallery">
+        <form class="OMDbForm">
+          <label for="search">Search for a movie</label>
+          <input type="search" name="search" id="search" class="OMDbSearch">
+          <br>
+          <input type="submit" value="Search" class="submit-btn">
+        </form>
+        <div id="movies">
+
+        </div>
+      </main>
+    </div>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="js/app.js" charset="utf-8"></script>
   </body>
