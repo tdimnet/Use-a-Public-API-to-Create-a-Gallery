@@ -33,6 +33,20 @@ $('.OMDbForm').submit(function(event) {
 
 //}); // end document.ready
 
+//
+  // Creating the variables
+//
+var $overlay = $('<div id="overlay"></div>');
+  // Adding element to the page
+$('body').append($overlay);
 
-// When a user click an Poster
-  // Retrieve the information from this
+
+//
+  // Creating the event handler
+//
+$('#movies').on('click', 'img', function() {
+  var image = $(this).attr('alt');
+  console.log(image);
+
+  $overlay.fadeIn('slow');
+});
