@@ -100,9 +100,10 @@ li {
 *******************************/
 #movies li {
   border: 1px solid #ccc;
-  margin-top: 10px;
+  margin: 10px auto;
   background-color: #fff;
   transition: .4s;
+  max-width: 80%;
 }
 
 #movies li:hover {
@@ -149,6 +150,11 @@ li {
   }
 
   /* Movies Gallery */
+  #movies ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   #movies li {
     width: 50%;
   }
