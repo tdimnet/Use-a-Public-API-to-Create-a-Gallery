@@ -1,4 +1,3 @@
-//$(document).ready(function() {
 $('.OMDbForm').submit(function(event) {
   // Stop the form from submitting
   event.preventDefault();
@@ -25,31 +24,44 @@ $('.OMDbForm').submit(function(event) {
   $.getJSON(OMDbAPI, OMDbOptions, displayMovies);// end getJSON
 }); // end submit function
 
-// console.log(value.Title);
-// console.log(value.Year);
-// console.log(value.imdbID);
-// console.log(value.Type);
-// console.log(value.Poster);
 
-//}); // end document.ready
+//
+  // When an image is clicked, retrieve all the information needed with a new AJAX Request
+//
+$('#movies').on('click', 'img', function() {
+  var image = $(this).attr('alt');
+  console.log(image);
+  var OMDbAPI = 'http://www.omdbapi.com/?';
+  var movie = image;
+  var OMDbOptions = {
+    t: movie
+  };
+  function displayOneMovie(data) {
+    console.log(data);
+    console.log(data.Poster);
+    $poster.attr('src', data.Poster);
+    $poster.attr('alt', data.Title);
+    $overlay.fadeIn('slow');
+  }
+  $.getJSON(OMDbAPI, OMDbOptions, displayOneMovie);
+});
+
+
 
 //
   // Creating the variables
 //
 var $overlay = $('<div id="overlay"></div>');
+var $poster = $('<img>');
   // Adding element to the page
 $('body').append($overlay);
+$overlay.append($poster);
 
 
 //
   // Creating the event handler
 //
-$('#movies').on('click', 'img', function() {
-  var image = $(this).attr('alt');
-  console.log(image);
 
-  $overlay.fadeIn('slow');
-});
 
 $overlay.click(function() {
   $(this).fadeOut('slow');
