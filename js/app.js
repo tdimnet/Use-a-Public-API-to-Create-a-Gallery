@@ -39,8 +39,13 @@ $('#movies').on('click', 'img', function() {
   function displayOneMovie(data) {
     console.log(data);
     console.log(data.Poster);
+    // Fill in the poster image
     $poster.attr('src', data.Poster);
     $poster.attr('alt', data.Title);
+    // Fill in the movie description
+    $movieTitle.text('Movie Title: ' + data.Title);
+    $moviePlot.text('Movie Plot: ' + data.Plot);
+    $movieYear.text('Year of released: ' + data.Year);
     $overlay.fadeIn('slow');
   }
   $.getJSON(OMDbAPI, OMDbOptions, displayOneMovie);
@@ -52,19 +57,26 @@ $('#movies').on('click', 'img', function() {
   // Creating the variables
 //
 var $overlay = $('<div id="overlay"></div>');
-var $imgContainer = $('<div id="imgContainer"></div>');
+var $movieContainer = $('<div id="movieContainer"></div>');
 var $poster = $('<img>');
+var $movieDescription = $('<ul id="movieDescription"></ul>');
+var $movieTitle = $('<li></li>');
+var $moviePlot = $('<li></li>');
+var $movieYear = $('<li></li>');
   // Adding element to the page
 $('body').append($overlay);
-$overlay.append($imgContainer);
-$imgContainer.append($poster);
+$overlay.append($movieContainer);
+$movieContainer.append($poster);
+$movieContainer.append($movieDescription);
+$movieDescription.append($movieTitle);
+$movieDescription.append($moviePlot);
+$movieDescription.append($movieYear);
+
 
 
 //
   // Creating the event handler
 //
-
-
 $overlay.click(function() {
   $overlay.fadeOut('slow');
 });
