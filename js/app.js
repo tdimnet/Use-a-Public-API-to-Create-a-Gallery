@@ -52,10 +52,12 @@ $('#movies').on('click', 'img', function() {
   // Creating the variables
 //
 var $overlay = $('<div id="overlay"></div>');
+var $imgContainer = $('<div id="imgContainer"></div>');
 var $poster = $('<img>');
   // Adding element to the page
 $('body').append($overlay);
-$overlay.append($poster);
+$overlay.append($imgContainer);
+$imgContainer.append($poster);
 
 
 //
@@ -64,5 +66,5 @@ $overlay.append($poster);
 
 
 $overlay.click(function() {
-  $(this).fadeOut('slow');
+  $overlay.fadeOut('slow');
 });
