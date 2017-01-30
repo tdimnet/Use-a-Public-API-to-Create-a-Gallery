@@ -1,3 +1,30 @@
+//
+  // Creating the variables
+//
+var $overlay = $('<div id="overlay"></div>');
+var $movieContainer = $('<div id="movieContainer"></div>');
+var $poster = $('<img>');
+var $movieDescription = $('<ul id="movieDescription"></ul>');
+var $movieTitle = $('<li></li>');
+var $moviePlot = $('<li></li>');
+var $movieYear = $('<li></li>');
+var $movieMetascore = $('<li></li>');
+var $movieGenre = $('<li></li>');
+  // Adding element to the page
+$('body').append($overlay);
+$overlay.append($movieContainer);
+$movieContainer.append($poster);
+$movieContainer.append($movieDescription);
+$movieDescription.append($movieTitle);
+$movieDescription.append($moviePlot);
+$movieDescription.append($movieYear);
+$movieDescription.append($movieMetascore);
+$movieDescription.append($movieGenre);
+
+
+//
+  // Creating the AJAX Request
+//
 $('.OMDbForm').submit(function(event) {
   // Stop the form from submitting
   event.preventDefault();
@@ -46,31 +73,12 @@ $('#movies').on('click', 'img', function() {
     $movieTitle.text('Movie Title: ' + data.Title);
     $moviePlot.text('Movie Plot: ' + data.Plot);
     $movieYear.text('Year of released: ' + data.Year);
+    $movieMetascore.text('Metascore: ' + data.Metascore);
+    $movieGenre.text('Genre: ' + data.Genre);
     $overlay.fadeIn('slow');
   }
   $.getJSON(OMDbAPI, OMDbOptions, displayOneMovie);
 });
-
-
-
-//
-  // Creating the variables
-//
-var $overlay = $('<div id="overlay"></div>');
-var $movieContainer = $('<div id="movieContainer"></div>');
-var $poster = $('<img>');
-var $movieDescription = $('<ul id="movieDescription"></ul>');
-var $movieTitle = $('<li></li>');
-var $moviePlot = $('<li></li>');
-var $movieYear = $('<li></li>');
-  // Adding element to the page
-$('body').append($overlay);
-$overlay.append($movieContainer);
-$movieContainer.append($poster);
-$movieContainer.append($movieDescription);
-$movieDescription.append($movieTitle);
-$movieDescription.append($moviePlot);
-$movieDescription.append($movieYear);
 
 
 

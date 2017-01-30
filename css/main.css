@@ -175,18 +175,23 @@ body {
   }
 
   #movies li {
-    width: 50%;
+    width: 30%;
   }
 
   #movieContainer {
-    width: 70%;
+    width: 90%;
     margin: auto;
+    display: flex;
   }
 }
 
 /* Desktop *********************/
 @media (min-width: 1024px) {
   #movies li {
-    width: 30%;
+    width: 25%;
+  }
+
+  #movieContainer {
+    width: 60%;
   }
 }
